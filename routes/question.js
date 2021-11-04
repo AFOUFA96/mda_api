@@ -4,10 +4,8 @@ const db = require('../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // res.send('ibrajkslldkjdkbcfc');
   db.question.findAll().then(function(rows) {
     res.json(rows);
-    //res.render('user', { rows: rows });
 });
 });
 router.get('/reponse', function(req, res, next) {

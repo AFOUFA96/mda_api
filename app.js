@@ -4,11 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 ///////////////////////////////////////////
-const cors = require('cors'); //permet de fonctionner les deux appli
+const cors = require('cors'); //permet de fonctionner les deux appli, n'oublies pas la commande cors!!
 ////////////////////////////////////////////
 var indexRouter = require('./routes/index');
 var questionRouter = require('./routes/question');
 var langueRouter = require('./routes/langues');
+var utilisateurRouter = require('./routes/utilisateur');
+// var utilisateur_reponseRouter = require('./routes/utilisateur_reponse');
 
 var app = express();
 //////////////////////////////////////////
@@ -30,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/question', questionRouter);
 app.use('/langues', langueRouter);
+app.use('/utilisateur', utilisateurRouter);
+// app.use('/utilisateur_reponse', utilisateur_reponseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
